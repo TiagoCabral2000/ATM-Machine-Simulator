@@ -17,12 +17,11 @@ float Account::getBalance() const {
    return balance;  // Changed to float
 }
 
-void Account::withdraw(float amount) {
-   if (amount > balance) {
-      std::cout << "\nInsufficient balance! You only have " << balance << " left!" << std::endl;
-      return;
-   }
+int Account::withdraw(float amount) {
+   if (amount > balance)
+      return 0;
    balance -= amount;
+   return 1;
 }
 
 void Account::deposit(float amount) {

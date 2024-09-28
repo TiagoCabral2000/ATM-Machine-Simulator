@@ -28,8 +28,10 @@ int main() {
                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
                     cout << "\nInvalid input! Please insert a valid number > ";
                 }
-                account.withdraw(amount);
-                cout << "\nOPERATION SUCESSFULL!\nThe updated balance is " << account.getBalance() << " EUR" << endl;
+                if(account.withdraw(amount))
+                    cout << "\nOPERATION SUCESSFULL!\nThe updated balance is " << account.getBalance() << " EUR" << endl;
+                else
+                    std::cout << "\nInsufficient balance! You only have " << account.getBalance() << " left!" << std::endl;
                 system = endOperation();
             break;
 

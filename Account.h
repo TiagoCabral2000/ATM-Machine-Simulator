@@ -16,7 +16,7 @@ public:
    Account(float amount);
    //Methods
    float getBalance() const;
-   void withdraw(float amount);
+   int withdraw(float amount);
    void deposit(float amount);
 };
 

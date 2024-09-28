@@ -5,7 +5,8 @@ using namespace std;
 
 int UI() {
    int option;
-   cout << "\n\n1. View Balance" << endl;
+   cout << "\n\n-------------------" << endl;
+   cout << "1. View Balance" << endl;
    cout << "2. Cash Withdraw" << endl;
    cout << "3. Cash Deposit" << endl;
    cout << "4. Exit" << endl;
