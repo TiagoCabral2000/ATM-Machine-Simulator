@@ -9,6 +9,7 @@ int main() {
     Account account(1000.00);
     int option;
     int system = 1;
+    float amount;
 
     while (system != 0) {
         option = inputValidation();
@@ -21,20 +22,29 @@ int main() {
 
             case 2:
                 cout << "\nHow much money would you like to withdraw? > ";
-            float amount;
 
-            while (!(cin >> amount)) {
-                cin.clear();
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                cout << "\nInvalid input! Please insert a valid number > ";
-            }
-
-            account.withdraw(amount);
+                while (!(cin >> amount)) {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cout << "\nInvalid input! Please insert a valid number > ";
+                }
+                account.withdraw(amount);
+                cout << "\nOPERATION SUCESSFULL!\nThe updated balance is " << account.getBalance() << " EUR" << endl;
+                system = endOperation();
             break;
 
             case 3:
-                // Add deposit functionality here if needed
-                    break;
+                cout << "\nHow much money would you like to deposit? > ";
+
+                while (!(cin >> amount)) {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cout << "\nInvalid input! Please insert a valid number > ";
+                }
+                account.deposit(amount);
+                cout << "\nOPERATION SUCESSFULL!\nThe updated balance is " << account.getBalance() << " EUR" << endl;
+                system = endOperation();
+            break;
 
             case 4:
                 system = 0;  // Exit option
