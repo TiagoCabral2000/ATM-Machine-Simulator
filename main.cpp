@@ -7,21 +7,37 @@ using namespace std;
 
 int main() {
     Account account(1000.00);
-    int option;
+    int startOption, menuOption;
+    int menu = 1;
     int system = 1;
     float amount;
 
     while (system != 0) {
-        option = inputValidation();
 
-        switch (option) {
+        //IMPLEMENTAR LOGICA DO MENU INICIAL
+        startOption = startInputValidation();
+
+        switch(startOption) {
             case 1:
-                cout << "\nYour current balance is " << account.getBalance() << " EUR." << endl;
-            system = endOperation();
-            break;
-
+                break;
             case 2:
-                cout << "\nHow much money would you like to withdraw? > ";
+                break;
+            case 3:
+                break;
+        }
+
+        
+        while (menu != 0) {
+            menuOption = menuInputValidation();
+
+            switch (menuOption) {
+                case 1:
+                    cout << "\nYour current balance is " << account.getBalance() << " EUR." << endl;
+                menu = endOperation();
+                break;
+
+                case 2:
+                    cout << "\nHow much money would you like to withdraw? > ";
 
                 while (!(cin >> amount)) {
                     cin.clear();
@@ -32,11 +48,11 @@ int main() {
                     cout << "\nOPERATION SUCESSFULL!\nThe updated balance is " << account.getBalance() << " EUR" << endl;
                 else
                     std::cout << "\nInsufficient balance! You only have " << account.getBalance() << " left!" << std::endl;
-                system = endOperation();
-            break;
+                menu = endOperation();
+                break;
 
-            case 3:
-                cout << "\nHow much money would you like to deposit? > ";
+                case 3:
+                    cout << "\nHow much money would you like to deposit? > ";
 
                 while (!(cin >> amount)) {
                     cin.clear();
@@ -45,16 +61,17 @@ int main() {
                 }
                 account.deposit(amount);
                 cout << "\nOPERATION SUCESSFULL!\nThe updated balance is " << account.getBalance() << " EUR" << endl;
-                system = endOperation();
-            break;
+                menu = endOperation();
+                break;
 
-            case 4:
-                system = 0;  // Exit option
-            break;
+                case 4:
+                    menu = 0;  // Exit menuOption
+                break;
 
-            default:
-                cout << "\nInvalid option. Please try again." << endl;
-            break;
+                default:
+                    cout << "\nInvalid menuOption. Please try again." << endl;
+                break;
+            }
         }
     }
 

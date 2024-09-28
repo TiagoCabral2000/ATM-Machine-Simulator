@@ -3,7 +3,22 @@
 #include <numeric>
 using namespace std;
 
-int UI() {
+int startUI() {
+   int option;
+   cout << "\n\n-------------------" << endl;
+   cout << "1. Login" << endl;
+   cout << "2. Create New Account" << endl;
+   cout << "3. Exit" << endl;
+   while (!(cin >> option)) {  // Check if input is not an integer
+      cin.clear();
+      cin.ignore(numeric_limits<streamsize>::max(), '\n');
+      cout << "Invalid input! Please enter a valid option > ";
+   }
+   return option;
+
+}
+
+int menuUI() {
    int option;
    cout << "\n\n-------------------" << endl;
    cout << "1. View Balance" << endl;
@@ -20,11 +35,25 @@ int UI() {
    return option;
 }
 
-int inputValidation() {
+int startInputValidation() {
    int option;
 
    while (true) {
-      option = UI();
+      option = startUI();
+      if (option >= 1 && option <= 3) {
+         return option;
+      }
+      cout << "\nInvalid input! Please insert a valid option!\n" << endl;
+   }
+}
+
+
+
+int menuInputValidation() {
+   int option;
+
+   while (true) {
+      option = menuUI();
       if (option >= 1 && option <= 4) {
          return option;
       }

@@ -7,8 +7,10 @@ using namespace std;
 #ifndef USERINTERFACE_H
 #define USERINTERFACE_H
 
-int UI();
-int inputValidation();
+int startUI();
+int menuUI();
+int startInputValidation();
+int menuInputValidation();
 int endOperation();
 
 #endif //USERINTERFACE_H
