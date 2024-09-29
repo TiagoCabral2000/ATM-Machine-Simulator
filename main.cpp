@@ -11,6 +11,17 @@ int main() {
     int menu = 1;
     int system = 1;
     float amount;
+    string usernames[] = {};
+
+    //unique_ptr<Account> acc1 {new Account {"Tiago"}};
+    //acc1-> withdraw (500)
+    //acc1-> deposit (500)
+
+    //unique_ptr<Account> acc2 = make_unique<Account>("Tiago",1000);
+
+    //std::vector<int> values;
+    //values.push_back(0);
+    //values.push_back(1);
 
     while (system != 0) {
 
