@@ -1,5 +1,6 @@
 #include <iostream>
 #include <numeric>
+#include <vector>
 #include "Account.h"
 #include "UserInterface.h"
 
@@ -11,7 +12,8 @@ int main() {
     int menu = 1;
     int system = 1;
     float amount;
-    string usernames[] = {};
+    vector<string> accounts;
+    string username, password;
 
     //unique_ptr<Account> acc1 {new Account {"Tiago"}};
     //acc1-> withdraw (500)
@@ -28,9 +30,13 @@ int main() {
         //IMPLEMENTAR LOGICA DO MENU INICIAL
         startOption = startInputValidation();
 
+        //SE 1:Login | SE 2: Create acc | Se 3 fechar programa
+
         switch(startOption) {
             case 1:
-                break;
+                cout << "\nUsername > ";
+                cin >> username;
+
             case 2:
                 break;
             case 3:
