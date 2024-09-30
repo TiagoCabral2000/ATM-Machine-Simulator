@@ -8,21 +8,23 @@ using namespace std;
 #ifndef ACCOUNT_H
 #define ACCOUNT_H
 
-class Account{
+class Account {
 private:
-   float balance;
-   vector<string> accounts;
-   vector<string> passwords;
+    vector<float> balances; // Vetor para armazenar saldos de cada conta
+    vector<string> accounts;
+    vector<string> passwords;
+
 public:
-   //Constructors
-   Account();
-   Account(float amount); //change to string username?
-   //Methods
-   void checkAcc();
-   void checkPass();
-   float getBalance() const;
-   int withdraw(float amount);
-   void deposit(float amount);
+    // Construtores
+    Account();
+
+    // Métodos
+    void newAccount(const string& username, const string& password); // Cria nova conta
+    bool login(const string& username, const string& password);       // Verifica login
+
+    float getBalance(const string& username) const; // Obtém saldo de uma conta específica
+    int withdraw(const string& username, float amount); // Retira dinheiro de uma conta
+    void deposit(const string& username, float amount); // Deposita dinheiro em uma conta
 };
 
 #endif //ACCOUNT_H
